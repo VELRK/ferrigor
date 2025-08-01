@@ -1,0 +1,145 @@
+.header-logo img {
+  width: 157px !important; 
+}
+.footer-logo img{
+width: 156px !important;
+}
+.experties
+{
+  margin-top: 10px;
+}
+.customeBottom
+{
+    margin-bottom: 19px !important;
+}
+.mb-30{
+      margin-bottom: 30px;
+}
+.top-new
+{
+  display : block !important;
+}
+.contact-map
+{
+  height:503px !important;
+}
+.popup-new-card
+{
+  margin-bottom: 20px;
+}
+.contact-mrg
+{
+  margin-top: 20px;
+}
+.acc2 .accordion-body ul,
+.acc2 .accordion-body ol {
+ 
+  line-height: 40px !important;
+}
+.maptitle
+{
+  color:#03a3e3 !important;
+  margin-bottom:10px;
+}
+.white-bg
+{
+  color:#fff !important;
+}
+.mapaddress
+{
+    justify-content: center;
+    flex: 1 1 0%;
+    padding: 40px;
+    display: flex;
+    flex-direction : column;
+
+}
+.desktop-nav .nav-bar .extras
+{
+  gap: 38px !important;
+}
+.desktop-nav .nav-bar .extras .theme-btn svg
+{
+    width: 28px !important;
+    height: 30px !important;
+}
+.linkedin
+{
+    font-size: 26px !important;
+    line-height: 30px !important;
+    color: #03a3dc !important;
+}
+.linkedin-new
+{
+  font-size : 26px !important;
+  line-height:30px !important;
+}
+.video img
+{
+      margin-top: 15% !important;
+      width: 50vw !important;
+}
+.res-log img
+{
+  width:100% !important;
+}
+.images
+{
+    width: 100% !important;
+    height: 72px !important;
+}
+.contact-info .images {
+    margin-right: 0px !important;
+}
+.data h3
+{
+    margin-top: 10px !important;
+    margin-left: 17px !important;
+}
+.container-new {
+  // height: 200px;
+  background-color: #fff; /* Change to your preferred color */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container-new img {
+  width: 50%;
+  height: 255px;
+}
+.display-flex-new
+{
+  display:flex;
+  justify-content: center;
+}
+
+
+@media (max-width: 1024px) {
+  .maptitle
+  {
+    font-size:20px !important;
+  }
+  .video img
+  {
+      
+      width: 100vw !important;
+  }
+  .construction-services .tab-content>.tab-pane figure figcaption h3 {
+        font-size: 16px !important;
+        margin-top: 5px !important;
+  }
+  .construction-services .tab-content>.tab-pane figure figcaption 
+    {
+      height:auto !important;
+      width:auto !important;
+      padding: 0px 10px 10px 10px !important;
+    }
+    .construction-services .tab-content > .tab-pane figure img {
+    position: relative !important;    
+    }
+    .construction-services .tab-content > .tab-pane figure
+    {
+      padding-bottom: 90% !important;
+    }
+}

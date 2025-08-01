@@ -1,0 +1,31 @@
+{
+    "subtitle": "Core Features of Our Post-Tensioning Services",
+    "title": "What Makes Us Different in Post-Tension Construction",
+    "yt_video_id": "uemObN8_dcw",
+    "image": {
+        "url": "/img/core-feature.png",
+        "alt": "image"
+    },
+    "items": [
+        {
+            "num": "01.",
+            "title": "Early Engagement",
+            "text": "We reduce project uncertainties by engaging early in the design phase. Our team ensures accurate tendon layout, optimized slab thickness, and efficient load transfer systems—delivering cost-effective and structurally sound solutions."
+        },
+        {
+            "num": "02.",
+            "title": "Integrity",
+            "text": "We uphold the highest standards in post-tensioning practices, from material sourcing to tensioning operations. Our commitment to safety and compliance ensures long-term durability and client trust."
+        },
+        {
+            "num": "03.",
+            "title": "Tailored Solutions",
+            "text": "Every project is unique. We provide customized post-tensioning designs for residential, commercial, and infrastructure projects—maximizing structural performance and minimizing construction time."
+        },
+        {
+            "num": "04.",
+            "title": "Innovation",
+            "text": "We leverage advanced modeling tools, automated tensioning systems, and smart monitoring technologies to push the boundaries of post-tension construction."
+        }
+    ]
+}

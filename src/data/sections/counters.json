@@ -1,0 +1,22 @@
+{
+    "items": [
+        {
+            "value": "45",
+            "label": "Years",
+            "plus": true,
+            "title": "Combined team experience in post-tensioning design and execution"
+        },
+        {
+            "value": "90",
+            "label": "% OPTIMIZATION",
+            "plus": false,
+            "title": "Achieved in PT slab thickness through advanced design techniques"
+        },
+        {
+            "value": "70",
+            "label": "% FASTER",
+            "plus": false,
+            "title": "Construction time with PT slabs compared to conventional methods"
+        }
+    ]
+}

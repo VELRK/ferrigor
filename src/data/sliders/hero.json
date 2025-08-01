@@ -1,0 +1,31 @@
+{
+    "items": [
+        {
+            "image": "img/banner.png",
+            "title": "Precise Engineering for Modern Construction",
+            "text": "Advanced high-strength tendons and anchorage | Intelligent slab and beam optimizations |Best suited for towers, bridges, and large podiums",
+            "button": {
+                "label": "Reach out for project enquiries",
+                "link": "/contact"
+            }
+        },
+        {
+            "image": "img/banner.png",
+            "title": "Developer-Oriented Solutions",
+            "text": "Personalized PT design expertise | Comprehensive site supervision and quality assurance | Proven longevity and reliable outcomes",
+            "button": {
+                "label": "Contact us to discuss your project",
+                "link": "/contact"
+            }
+        },
+        {
+            "image": "img/banner.png",
+            "title": "Designing Sustainably for Tomorrow",
+            "text": "Sustainable engineering approach | Minimized columns for wider open plans | Ready for future building standards",
+            "button": {
+                "label": "Connect with us for sustainable solutions",
+                "link": "/contact"
+            }
+        }
+    ]
+}

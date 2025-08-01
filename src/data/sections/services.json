@@ -1,0 +1,64 @@
+{
+    "items": [
+        {
+            "icon": {
+                "light": "/img/1sc.jpeg",
+                "dark": "/img/1sc.jpeg",
+                "alt": "icon"
+            },
+            "title": "Buildings",
+            "text": "Post-tensioning and structural systems designed for high-rise towers, residential, and commercial developments.",
+            "link": "/services/service-1"
+        },
+        {
+            "icon": {
+                "light": "/img/2sc.jpeg",
+                "dark": "/img/2sc.jpeg",
+                "alt": "icon"
+            },
+            "title": "Bridges",
+            "text": "Precision-engineered post-tensioning solutions for long-span bridge structures, enhancing durability and performance.",
+            "link": "/services/service-2"
+        },
+        {
+            "icon": {
+                "light": "/img/3sc.jpeg",
+                "dark": "/img/3sc.jpeg",
+                "alt": "icon"
+            },
+            "title": "Silos",
+            "text": "Structural design and post-tensioning support for large-capacity silos used in industrial and agricultural sectors.",
+            "link": "/services/service-3"
+        },
+        {
+            "icon": {
+                "light": "/img/4sc.jpeg",
+                "dark": "/img/4sc.jpeg",
+                "alt": "icon"
+            },
+            "title": "Ground Anchoring",
+            "text": "Reliable anchoring systems for deep excavations, retaining walls, and slope stabilization to ensure structural integrity.",
+            "link": "/services/service-4"
+        },
+        {
+            "icon": {
+                "light": "/img/5sc.jpeg",
+                "dark": "/img/5sc.jpeg",
+                "alt": "icon"
+            },
+            "title": "Value Engineering",
+            "text": "Cost-effective engineering solutions that optimize performance without compromising quality or safety.",
+            "link": "/services/service-5"
+        },
+        {
+            "icon": {
+                "light": "/img/6sc.jpeg",
+                "dark": "/img/6sc.jpeg",
+                "alt": "icon"
+            },
+            "title": "Structural Design",
+            "text": "End-to-end design services that ensure strength, compliance, and functionality across a wide range of structures.",
+            "link": "/services/service-6"
+        }
+    ]
+}
