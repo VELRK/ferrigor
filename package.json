@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "postbuild": "next-sitemap"
   },
   "dependencies": {
     "@babel/runtime": "^7.26.0",
@@ -16,6 +17,7 @@
     "leaflet": "^1.9.4",
     "leaflet-extra-markers": "^1.2.2",
     "next": "^15.4.4",
+    "next-sitemap": "^4.2.3",
     "react": "18.2.0",
     "react-bootstrap": "^2.10.10",
     "react-countup": "^6.5.3",

@@ -44,7 +44,7 @@ const Services = (props) => {
                     <Nav.Link eventKey="tab-service-3">Supply & Installation of LRPC Strands & Anchorages</Nav.Link>
                   </Nav.Item>
                   <Nav.Item>
-                    <Nav.Link eventKey="tab-service-4">Grouting & Stressing Operations</Nav.Link>
+                    <Nav.Link eventKey="tab-service-4">Stressing & Grouting Operations</Nav.Link>
                   </Nav.Item>
                   <Nav.Item>
                     <Nav.Link eventKey="tab-service-5">PT Material Supply</Nav.Link>
