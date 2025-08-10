@@ -13,10 +13,16 @@ function MyApp({ Component, pageProps }) {
   return (
     <>
       <Head>
-          {/* seo begin */}
-          <title>{appData.settings.siteName}</title>
-          <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-          {/* seo end */}        
+        {/* SEO begin */}
+        <title>{appData.settings.siteName}</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        {appData.settings.meta_description && (
+          <meta name="description" content={appData.settings.meta_description} />
+        )}
+        {appData.settings.meta_keywords && (
+          <meta name="keywords" content={appData.settings.meta_keywords} />
+        )}
+        {/* SEO end */}
       </Head>
       <Component {...pageProps} />
     </>

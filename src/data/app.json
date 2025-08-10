@@ -1,6 +1,8 @@
 {
     "settings": {
-        "siteName": "Ferrigor",
+        "siteName": "Ferrigor | Advanced Post Tensioning & Structural Engineering Solutions in Dubai",
+        "meta_desc": "Ferrigor delivers world-class post tensioning, structural design, and ground engineering solutions for buildings, bridges, silos, and infrastructure projects across Dubai and beyond. Our value engineering expertise ensures strength, efficiency, and cost savings for every project",
+        "meta_keywords": "post tensioning Dubai, structural engineering UAE, ground engineering Dubai, value engineering Dubai, bridge post tensioning, building post tensioning, silo construction UAE, infrastructure engineering Dubai, structural design UAE",
         "preloader": {
             "image": "/img/preloader-new.png",
             "alt": "logo"
