@@ -51,7 +51,7 @@ export default function Careers() {
     <Layouts>
           <PageBanner pageTitle={"Careers"} pageDesc={"Join our team"} />
       <Head>
-        <title>Careers | Builty Construction</title>
+        <title>Careers</title>
       </Head>
       <section className="py-5" style={{ background: "#f8f9fa" }}>
         <Container>

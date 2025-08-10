@@ -1,4 +1,5 @@
 import React from "react";
+import Head from "next/head";
 import Layouts from "@layouts/Layouts";
 import dynamic from "next/dynamic";
 
@@ -22,6 +23,11 @@ const Home1 = (props) => {
   return (
     <Layouts transparent>
       <>
+        <Head>
+          <title>Ferrigor | Advanced Post Tensioning & Structural Engineering Solutions in Dubai</title>
+          <meta name="description" content="Ferrigor delivers world-class post tensioning, structural design, and ground engineering solutions for buildings, bridges, silos, and infrastructure projects across Dubai and beyond. Our value engineering expertise ensures strength, efficiency, and cost savings for every project." />
+          <meta name="keywords" content="post tensioning Dubai, structural engineering UAE, ground engineering Dubai, value engineering Dubai, bridge post tensioning, building post tensioning, silo construction UAE, infrastructure engineering Dubai, structural design UAE" />
+        </Head>
         <HeroSlider />
         {/* <ServicesSection /> */}
         <AboutSection />
