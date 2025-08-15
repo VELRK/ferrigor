@@ -49,7 +49,7 @@ const BlogDetail = () => {
       
       if (blogData) {
         setBlog(blogData);
-        console.log(blogData.content_image1, blogData.content_image2, blogData.content_image3);console.log(blogData.content_image1, blog.content_image2, blog.content_image3);
+        
       } else {
         setError('Blog not found');
       }
