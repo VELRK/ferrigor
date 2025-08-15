@@ -31,14 +31,14 @@ const About = () => {
                   <p>Ferrigor is a leading engineering firm based in Dubai, UAE, specializing in post-tensioning systems and advanced structural solutions. We collaborate with contractors, consultants, and developers to deliver cost-effective, high-performance outcomes for complex construction projects.</p>
                 </div>
                 <div>
-                  <h3 class="expertise">Our expertise spans:</h3>
-                  <ul class="customeBottom">
+                  <h3 className="expertise">Our expertise spans:</h3>
+                  <ul className="customeBottom">
                     <li><i className="fa-solid fa-circle-dot" /> Bonded and unbonded post-tensioning systems</li>
                     <li><i className="fa-solid fa-circle-dot" /> Structural design and supervision</li>
                     <li><i className="fa-solid fa-circle-dot" /> Value engineering and site execution</li>
                   </ul>
                 </div>                
-                  <p class="mb-30">From concept to completion, we integrate technical precision with field-tested reliability—building not just structures, but long-term partnerships based on trust and performance.</p>
+                  <p className="mb-30">From concept to completion, we integrate technical precision with field-tested reliability—building not just structures, but long-term partnerships based on trust and performance.</p>
                 
                 <figure>
                   <img className="w-100" src="/img/logo_abt.png" alt="About Image One" />

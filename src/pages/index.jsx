@@ -41,13 +41,46 @@ const Home1 = (props) => {
 export default Home1;
 
 export async function getStaticProps() {
-  const allPosts = getSortedPostsData();
-  const allProjects = getSortedProjectsData();
+  try {
+    // For posts, we can use static data since it's from markdown files
+    const allPosts = getSortedPostsData();
+    
+    // For projects, we'll try to fetch but provide fallback
+    let allProjects = [];
+    try {
+      allProjects = await getSortedProjectsData();
+    } catch (projectError) {
+      console.warn('Could not fetch projects during build:', projectError);
+      // Provide fallback project data
+      allProjects = [
+        {
+          id: "1",
+          title: "Sample Project",
+          short: "This is a sample project description that will be shown when the API is not available.",
+          location: "Sample Location",
+          dates: "2024",
+          image: "/img/project3.jpeg",
+          status: "active"
+        }
+      ];
+    }
 
-  return {
-    props: {
-      posts: allPosts,
-      projects: allProjects
+    return {
+      props: {
+        posts: allPosts || [],
+        projects: allProjects || []
+      },
+      // Revalidate every hour to get fresh data
+      revalidate: 3600
+    }
+  } catch (error) {
+    console.error('Error in getStaticProps:', error);
+    return {
+      props: {
+        posts: [],
+        projects: []
+      },
+      revalidate: 3600
     }
   }
 }

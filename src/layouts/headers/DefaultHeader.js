@@ -52,7 +52,7 @@ const DefaultHeader = ({ contactButton, cartButton }) => {
             <div className="container">
               <div className="row">
                 <div className="col-lg-12">
-                  <div className="d-flex-all justify-content-between">
+                  <div className="d-flex-all gap-4">
                     <div className="header-logo">
                       <Link href="/">
                         <figure>
@@ -175,7 +175,7 @@ const DefaultHeader = ({ contactButton, cartButton }) => {
             <h2>Build Smarter with Ferrigor – Post-Tensioning Experts </h2>
             <p className="des">Ferrigor delivers advanced post-tensioning systems for high-rise towers, podium slabs, and infrastructure projects. Our solutions reduce material costs, enable longer spans, and accelerate construction timelines.</p>
             <h3>We Offer:</h3>
-            <ul class="popup-new-card">
+            <ul className="popup-new-card">
               <li>Optimized slab design</li>
               <li>Durable tendon systems</li>
               <li>Long-term structural reliability</li>

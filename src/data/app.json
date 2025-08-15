@@ -7,7 +7,7 @@
             "image": "/img/preloader-new.png",
             "alt": "logo"
         },
-        "formspreeURL": "https://formspree.io/f/your_api_key",
+        "formspreeURL": "https://superfinelabels.in/ferrigor/api/store_email_activity",
         "mailchimp": {
             "url": "",
             "key": ""
@@ -33,7 +33,17 @@
                 "label": "Services",
                 "link": "/services",
                 "children":0
-            },        
+            },  
+            {
+                "label": "Blog",
+                "link": "/blog",
+                "children":0
+            },  
+            {
+                "label": "Projects",
+                "link": "/projects",
+                "children":0
+            },       
             {
                 "label": "Careers",
                 "link": "/careers",

@@ -1,16 +1,49 @@
-import PageBanner from "@components/PageBanner";
+import Head from 'next/head';
 import Layouts from "@layouts/Layouts";
-import Accordion from "react-bootstrap/Accordion";
-import appData from "@data/app.json";
-import { Formik } from "formik";
-import dynamic from "next/dynamic";
-
-// Dynamically import the map so it only runs on the client
-const MapWithMarkers = dynamic(() => import("../components/MapWithMarkers"), {
-  ssr: false,
-});
+import PageBanner from "@components/PageBanner";
+import MapWithMarkers from "@components/MapWithMarkers";
+import { Formik } from 'formik';
+import { useState } from 'react';
+import { Alert, Spinner } from 'react-bootstrap';
+import { storeEmailActivity } from '../lib/api';
+import { Accordion } from 'react-bootstrap';
 
 const Contact = () => {
+  const [loading, setLoading] = useState(false);
+  const [response, setResponse] = useState(null);
+  const [error, setError] = useState(null);
+
+  const handleFormSubmit = async (values, { setSubmitting, resetForm }) => {
+    setLoading(true);
+    setError(null);
+    setResponse(null);
+
+    try {
+      console.log('Submitting contact form data:', values);
+      
+      const result = await storeEmailActivity({
+        name: values.name,
+        email: values.email,
+        message: values.message
+      });
+      
+      console.log('Contact form API result:', result);
+
+      if (result.status === 'success') {
+        setResponse(result.data);
+        resetForm();
+      } else {
+        setError(result.message || 'Failed to send message');
+      }
+    } catch (err) {
+      console.error('Error submitting contact form:', err);
+      setError(err.message || 'Network error occurred');
+    } finally {
+      setLoading(false);
+      setSubmitting(false);
+    }
+  };
+
   const faqData = {
   items: [
     {
@@ -116,12 +149,11 @@ const Contact = () => {
                   Looking for expert guidance on post-tensioning systems, PT slab design, or structural strengthening? Our Dubai-based engineering team is ready to deliver customized solutions that meet your project’s technical and budgetary needs.
                 </p>
                 <p></p>
-                <p class="contact-mrg">Fill out the form below, and we’ll respond with precision-engineered recommendations tailored to your structure.</p>
+                <p className="contact-mrg">Fill out the form below, and we'll respond with precision-engineered recommendations tailored to your structure.</p>
                 <Formik
                   initialValues={{
                     email: "",
                     name: "",
-                    subject: "",
                     message: "",
                   }}
                   validate={(values) => {
@@ -137,47 +169,7 @@ const Contact = () => {
                     }
                     return errors;
                   }}
-                  onSubmit={(values, { setSubmitting }) => {
-                    const form = document.getElementById("contactForm");
-                    const status = document.getElementById("contactFormStatus");
-                    const data = new FormData();
-
-                    data.append("name", values.name);
-                    data.append("subject", values.subject);
-                    data.append("email", values.email);
-                    data.append("message", values.message);
-
-                    fetch(form.action, {
-                      method: "POST",
-                      body: data,
-                      headers: {
-                        Accept: "application/json",
-                      },
-                    })
-                      .then((response) => {
-                        if (response.ok) {
-                          status.innerHTML = "Thanks for your submission!";
-                          form.reset();
-                        } else {
-                          response.json().then((data) => {
-                            if (Object.hasOwn(data, "errors")) {
-                              status.innerHTML = data["errors"]
-                                .map((error) => error["message"])
-                                .join(", ");
-                            } else {
-                              status.innerHTML =
-                                "Oops! There was a problem submitting your form";
-                            }
-                          });
-                        }
-                      })
-                      .catch(() => {
-                        status.innerHTML =
-                          "Oops! There was a problem submitting your form";
-                      });
-
-                    setSubmitting(false);
-                  }}
+                  onSubmit={handleFormSubmit}
                 >
                   {({
                     values,
@@ -190,7 +182,6 @@ const Contact = () => {
                     <form
                       onSubmit={handleSubmit}
                       id="contactForm"
-                      action={appData.settings.formspreeURL}
                     >
                       <div className="row g-0">
                         <textarea
@@ -225,21 +216,50 @@ const Contact = () => {
                           onBlur={handleBlur}
                           value={values.email}
                         />
-                      </div>
-                      <div className="row g-0">
-                        <input
-                          type="text"
-                          className="form-control"
-                          placeholder="Subject"
-                          name="subject"
-                          onChange={handleChange}
-                          onBlur={handleBlur}
-                          value={values.subject}
-                        />
-                      </div>
-                      <button type="submit" className="theme-btn">
-                        Send Message <i className="fa-solid fa-angles-right" />
+                      </div>           
+             
+                      <button type="submit" className="theme-btn" disabled={loading}>
+                        {loading ? (
+                          <>
+                            <Spinner
+                              as="span"
+                              animation="border"
+                              size="sm"
+                              role="status"
+                              aria-hidden="true"
+                              className="me-2"
+                            />
+                            Sending...
+                          </>
+                        ) : (
+                          <>
+                            Send Message <i className="fa-solid fa-angles-right" />
+                          </>
+                        )}
                       </button>
+
+                      {/* Response Display */}
+                      {response && (
+                        <Alert variant="success" className="mt-3">
+                          <Alert.Heading>
+                            <i className="fa-solid fa-check-circle me-2"></i>
+                            Success!
+                          </Alert.Heading>
+                          <p>Your message has been sent successfully!</p>
+                          <hr />                          
+                        </Alert>
+                      )}
+
+                      {/* Error Display */}
+                      {error && (
+                        <Alert variant="danger" className="mt-3">
+                          <Alert.Heading>
+                            <i className="fa-solid fa-exclamation-triangle me-2"></i>
+                            Error
+                          </Alert.Heading>
+                          <p>{error}</p>
+                        </Alert>
+                      )}
 
                       <div className="form-status" id="contactFormStatus" />
                     </form>
@@ -286,7 +306,7 @@ const Contact = () => {
                     </ul>
                     <ul className="social-medias">
                         <li>
-                            <a class="linkedin" href="https://www.linkedin.com/company/ferrigor" target="_blank"><i class="fa-brands fa-linkedin"></i> LinkedIn</a>
+                            <a className="linkedin" href="https://www.linkedin.com/company/ferrigor" target="_blank"><i className="fa-brands fa-linkedin"></i> LinkedIn</a>
                         </li>
                         
                     </ul>

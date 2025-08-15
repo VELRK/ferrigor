@@ -19,19 +19,22 @@ const LatestPostsSlider = ( { posts } ) => {
                     {...sliderProps.blogSlider}
                     className="swiper-container blog-slider row"
                 >
-                    {posts.slice(0, Data.numOfItems).map((item, key) => (
-                    <SwiperSlide key={`bs-slide-${key}`} className="swiper-slide">
-                    <div className="blog-item col-lg-12">
-                        <span className="blog-post-num">{key+1}.</span>
-                        <span className="blog-date"><Date dateString={item.date} /></span>
-                        <h2><Link href={`/blog/${item.id}`}>{item.title}</Link></h2>
-                        <p>{item.short}</p>
-                        <Link href={`/blog/${item.id}`}>
-                            <i className="fa-solid fa-arrow-up-long"></i>
-                        </Link>
-                    </div>
-                    </SwiperSlide>
-                    ))}
+                    {posts.slice(0, Data.numOfItems).map((item, key) => {
+                      const slug = `${item.id}-${item.title.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '')}`;
+                      return (
+                        <SwiperSlide key={`bs-slide-${key}`} className="swiper-slide">
+                        <div className="blog-item col-lg-12">
+                            <span className="blog-post-num">{key+1}.</span>
+                            <span className="blog-date"><Date dateString={item.date} /></span>
+                            <h2><Link href={`/blog/${slug}`}>{item.title}</Link></h2>
+                            <p>{item.short}</p>
+                            <Link href={`/blog/${slug}`}>
+                                <i className="fa-solid fa-arrow-up-long"></i>
+                            </Link>
+                        </div>
+                        </SwiperSlide>
+                      );
+                    })}
                     <div className="swiper-pagination" />
                 </Swiper>
             </div>

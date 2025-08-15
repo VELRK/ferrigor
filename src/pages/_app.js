@@ -4,6 +4,7 @@ import appData from "@data/app.json";
 import 'leaflet/dist/leaflet.css';
 import '../styles/scss/style.scss';
 import "../styles/globals.css";
+import "../styles/careers.css";
 
 import { register } from "swiper/element/bundle";
 // register Swiper custom elements

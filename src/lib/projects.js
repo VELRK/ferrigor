@@ -1,141 +1,169 @@
-import fs from 'fs'
-import path from 'path'
-import matter from 'gray-matter'
-import { remark } from 'remark'
-import html from 'remark-html'
+import { fetchProjects, fetchProjectById } from './api';
 
-const projectsDirectory = path.join(process.cwd(), 'src/data/projects')
+const DEFAULT_PROJECT_IMAGE = '/img/default-project.jpg';
 
-export function getSortedProjectsData() {
-  // Get file names under /posts
-  const fileNames = fs.readdirSync(projectsDirectory)
-  const allData = fileNames.map(fileName => {
-    // Remove ".md" from file name to get id
-    const id = fileName.replace(/\.md$/, '')
-
-    // Read markdown file as string
-    const fullPath = path.join(projectsDirectory, fileName)
-    const fileContents = fs.readFileSync(fullPath, 'utf8')
-
-    // Use gray-matter to parse the post metadata section
-    const matterResult = matter(fileContents)
-
-    // Combine the data with the id
-    return {
-      id,
-      ...matterResult.data
+export async function getSortedProjectsData() {
+  try {
+    console.log('Calling fetchProjects...');
+    const response = await fetchProjects();
+    console.log('Raw API response:', response);
+    
+    // Handle different possible API response structures
+    let projectsData = [];
+    
+    if (response && response.data) {
+      projectsData = response.data;
+    } else if (response && Array.isArray(response)) {
+      projectsData = response;
+    } else if (response && response.projects) {
+      projectsData = response.projects;
+    } else if (response && response.items) {
+      projectsData = response.items;
     }
-  })
-  // Sort posts by date
-  return allData.sort((a, b) => {
-    if (a.id > b.id) {
-      return 1
-    } else {
-      return -1
+    
+    console.log('Extracted projects data:', projectsData);
+    
+    if (projectsData && Array.isArray(projectsData) && projectsData.length > 0) {
+      // Transform API data to match expected format and add default image
+      const transformedProjects = projectsData.map(project => ({
+        id: project.id || project.project_id,
+        title: project.title || project.name || project.project_title,
+        short: project.description || project.short_description || project.summary || 'No description available',
+        location: project.location || project.project_location || 'N/A',
+        dates: project.project_date || project.date || project.created_date || 'N/A',
+        image: project.image || '/img/project3.jpeg',
+        status: project.status || 'active',
+        created_at: project.created_at || project.created_date,
+        updated_at: project.updated_at || project.updated_date
+      }));
+      
+      console.log('Transformed projects:', transformedProjects);
+      return transformedProjects;
     }
-  })
+    
+    console.log('No valid projects data found, returning empty array');
+    return [];
+  } catch (error) {
+    console.error('Error getting projects data:', error);
+    return [];
+  }
 }
 
-export function getFeaturedProjectsData(ids) {
-  
-  // Get file names under /posts
-  const fileNames = fs.readdirSync(projectsDirectory)
-  const allData = []
-  fileNames.map(fileName => {
-    // Remove ".md" from file name to get id
-    const id = fileName.replace(/\.md$/, '')
-
-    // Read markdown file as string
-    const fullPath = path.join(projectsDirectory, fileName)
-    const fileContents = fs.readFileSync(fullPath, 'utf8')
-
-    // Use gray-matter to parse the post metadata section
-    const matterResult = matter(fileContents)
-
-    if ( ids.includes(id) ) {
-      // Combine the data with the id
-      allData.push({
-        id,
-        ...matterResult.data
+export async function getFeaturedProjectsData(ids) {
+  try {
+    const response = await fetchProjects();
+    if (response.status === 'success' && response.data) {
+      const allProjects = response.data
+        .filter(project => ids.includes(project.id))
+        .map(project => ({
+          id: project.id,
+          title: project.title,
+          short: project.description,
+          location: project.location,
+          dates: project.project_date,
+          image: project.image || DEFAULT_PROJECT_IMAGE,
+          status: project.status,
+          created_at: project.created_at,
+          updated_at: project.updated_at
+        }));
+      
+      return allProjects.sort((a, b) => {
+        if (a.id > b.id) {
+          return 1;
+        } else {
+          return -1;
+        }
       });
     }
-  })
-
-  // Sort posts by date
-  return allData.sort((a, b) => {
-    if (a.id > b.id) {
-      return 1
-    } else {
-      return -1
-    }
-  })
+    return [];
+  } catch (error) {
+    console.error('Error getting featured projects data:', error);
+    return [];
+  }
 }
 
-export function getRelatedProjects(current_id) {
-  // Get file names under /posts
-  const fileNames = fs.readdirSync(projectsDirectory)
-  const allData = [];
-
-  fileNames.map(fileName => {
-    // Remove ".md" from file name to get id
-    const id = fileName.replace(/\.md$/, '')
-
-    // Read markdown file as string
-    const fullPath = path.join(projectsDirectory, fileName)
-    const fileContents = fs.readFileSync(fullPath, 'utf8')
-
-    // Use gray-matter to parse the post metadata section
-    const matterResult = matter(fileContents)
-
-    // Exclude current id from result
-
-    if ( id != current_id ) {
-      // Combine the data with the id
-      allData.push({
-        id,
-        ...matterResult.data
+export async function getRelatedProjects(current_id) {
+  try {
+    const response = await fetchProjects();
+    if (response.status === 'success' && response.data) {
+      const allProjects = response.data
+        .filter(project => project.id !== current_id)
+        .map(project => ({
+          id: project.id,
+          title: project.title,
+          short: project.description,
+          location: project.location,
+          dates: project.project_date,
+          image: project.image || DEFAULT_PROJECT_IMAGE,
+          status: project.status,
+          created_at: project.created_at,
+          updated_at: project.updated_at
+        }));
+      
+      return allProjects.sort((a, b) => {
+        if (a.id > b.id) {
+          return 1;
+        } else {
+          return -1;
+        }
       });
     }
-  })
-
-  // Sort posts by date
-  return allData.sort((a, b) => {
-    if (a.category > b.category) {
-      return 1
-    } else {
-      return -1
-    }
-  })
-}
-
-export function getAllProjectsIds() {
-  const fileNames = fs.readdirSync(projectsDirectory)
-  return fileNames.map(fileName => {
-    return {
-      params: {
-        id: fileName.replace(/\.md$/, '')
-      }
-    }
-  })
+    return [];
+  } catch (error) {
+    console.error('Error getting related projects data:', error);
+    return [];
+  }
 }
 
 export async function getProjectData(id) {
-  const fullPath = path.join(projectsDirectory, `${id}.md`)
-  const fileContents = fs.readFileSync(fullPath, 'utf8')
-
-  // Use gray-matter to parse the post metadata section
-  const matterResult = matter(fileContents)
-
-  // Use remark to convert markdown into HTML string
-  const processedContent = await remark()
-    .use(html)
-    .process(matterResult.content)
-  const contentHtml = processedContent.toString()
-
-  // Combine the data with the id and contentHtml
-  return {
-    id,
-    contentHtml,
-    ...matterResult.data
+  try {
+    const response = await fetchProjectById(id);
+    if (response && response.status === 'success' && response.data) {
+      const project = response.data;
+      return {
+        id: project.id,
+        title: project.title,
+        short: project.description,
+        location: project.location,
+        dates: project.project_date,
+        image: project.image || DEFAULT_PROJECT_IMAGE,
+        status: project.status,
+        created_at: project.created_at,
+        updated_at: project.updated_at,
+        // Add default values for missing fields that components expect
+        checklist: {
+          title: "What's Included in Project",
+          items: [
+            "Dedication to client satisfaction",
+            "Teamwork and collaboration",
+            "Being leader in our profession",
+            "Pride in our works and excellence"
+          ]
+        },
+        details: {
+          items: [
+            { label: "Sectors", value: "Construction", icon: "/img/icon-pd-1.svg" },
+            { label: "Owner", value: "Project Owner", icon: "/img/icon-pd-2.svg" },
+            { label: "Square Feet", value: "To be determined", icon: "/img/icon-pd-3.svg" },
+            { label: "Project Date", value: project.project_date, icon: "/img/icon-pd-4.svg" }
+          ]
+        },
+        slider: {
+          items: [
+            { image: project.image || DEFAULT_PROJECT_IMAGE, alt: project.title }
+          ]
+        }
+      };
+    }
+    return null;
+  } catch (error) {
+    console.error(`Error getting project data for ${id}:`, error);
+    return null;
   }
+}
+
+export function getAllProjectsIds() {
+  // This function is used for static generation, but since we're now using API,
+  // we'll return an empty array and let Next.js handle fallback
+  return [];
 }

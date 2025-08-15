@@ -113,7 +113,10 @@ width: 156px !important;
   display:flex;
   justify-content: center;
 }
-
+.gap1
+{
+  padding: 20px 0 !important;
+}
 
 @media (max-width: 1024px) {
   .maptitle
@@ -142,4 +145,62 @@ width: 156px !important;
     {
       padding-bottom: 90% !important;
     }
+}
+
+/* Career Cards Styling */
+.career-card {
+  transition: all 0.3s ease;
+  border: 1px solid #e9ecef;
+  
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1) !important;
+    border-color: #007bff;
+  }
+  
+  .card-body {
+    padding: 1.5rem;
+  }
+  
+  .badge {
+    font-size: 0.75rem;
+    padding: 0.5rem 0.75rem;
+  }
+  
+  .card-title {
+    font-size: 1.1rem;
+    line-height: 1.4;
+    color: #2c3e50;
+  }
+  
+  .card-text {
+    color: #6c757d;
+    line-height: 1.6;
+    font-size: 0.9rem;
+  }
+  
+  .btn {
+    padding: 0.75rem 1.5rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .career-card {
+    .card-body {
+      padding: 1.25rem;
+    }
+    
+    .card-title {
+      font-size: 1rem;
+    }
+    
+    .btn {
+      padding: 0.6rem 1.25rem;
+      font-size: 0.85rem;
+    }
+  }
 }

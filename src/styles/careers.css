@@ -1,0 +1,283 @@
+/* Career Section Styling */
+.career-item {
+  background: #fff;
+  border: 1px solid #e9ecef;
+  border-radius: 12px;
+  padding: 2rem;
+  margin-bottom: 2rem;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s ease;
+}
+
+.career-item:hover {
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.12);
+  transform: translateY(-2px);
+}
+
+.career-title {
+  color: #2c3e50;
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 0;
+}
+
+.career-badges .badge {
+  font-size: 0.75rem;
+  padding: 0.5rem 0.75rem;
+  border-radius: 20px;
+}
+
+.career-details p {
+  color: #6c757d;
+  font-size: 0.9rem;
+  margin-bottom: 0.5rem;
+}
+
+.career-details i {
+  width: 16px;
+  text-align: center;
+}
+
+.career-description {
+  color: #495057;
+  line-height: 1.6;
+}
+
+.career-actions .btn {
+  border-radius: 8px;
+  font-weight: 600;
+  padding: 0.75rem 1.5rem;
+  transition: all 0.3s ease;
+}
+
+.career-actions .btn:hover {
+  transform: translateY(-1px);
+}
+
+.career-footer {
+  color: #6c757d;
+  font-size: 0.85rem;
+}
+
+.career-footer i {
+  width: 14px;
+  text-align: center;
+}
+
+/* Search and Filter Section */
+.search-filter-section {
+  background: #fff;
+  border: 1px solid #e9ecef;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  margin-bottom: 1rem;
+  text-align: center;
+  padding: 1.5rem !important;
+}
+
+.search-filter-section h4 {
+  color: #2c3e50;
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+.search-filter-section .form-control,
+.search-filter-section .form-select {
+  border: 1px solid #dee2e6;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  text-align: center;
+}
+
+.search-filter-section .form-control:focus,
+.search-filter-section .form-select:focus {
+  border-color: #007bff;
+  box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+}
+
+.search-filter-section .input-group-text {
+  background: #f8f9fa;
+  border: 1px solid #dee2e6;
+  border-right: none;
+  color: #6c757d;
+}
+
+.search-filter-section .form-control {
+  border-left: none;
+}
+
+.search-filter-section .btn-outline-secondary {
+  border-radius: 8px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.search-filter-section .btn-outline-secondary:hover {
+  background: #6c757d;
+  border-color: #6c757d;
+  transform: translateY(-1px);
+}
+
+.search-filter-section .btn-outline-secondary:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.search-filter-section .row {
+  justify-content: center;
+  align-items: center;
+}
+
+.search-filter-section .col-lg-6,
+.search-filter-section .col-lg-2,
+.search-filter-section .col-md-4 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.search-filter-section .input-group {
+  max-width: 400px;
+}
+
+.search-filter-section .form-select {
+  min-width: 120px;
+}
+
+.search-filter-section .mb-3 {
+  margin-bottom: 1rem !important;
+}
+
+.search-filter-section .row:last-child {
+  margin-top: 1rem;
+  margin-bottom: 0;
+}
+
+.search-filter-section .text-muted {
+  font-size: 0.9rem;
+}
+
+.search-filter-section .btn {
+  margin: 0;
+}
+
+/* Benefit Items */
+.benefit-item {
+  padding: 2rem 1rem;
+  transition: all 0.3s ease;
+}
+
+.benefit-item:hover {
+  transform: translateY(-5px);
+}
+
+.benefit-icon {
+  color: #007bff;
+  margin-bottom: 1rem;
+}
+
+.benefit-item h4 {
+  color: #2c3e50;
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+.benefit-item p {
+  color: #6c757d;
+  line-height: 1.6;
+  margin-bottom: 0;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .career-item {
+    padding: 1.5rem;
+  }
+  
+  .career-title {
+    font-size: 1.25rem;
+  }
+  
+  .career-actions {
+    text-align: center;
+    margin-top: 1rem;
+  }
+  
+  .career-actions .btn {
+    margin-bottom: 0.5rem;
+    width: 100%;
+  }
+  
+  .career-footer {
+    text-align: center;
+  }
+  
+  .career-footer .col-md-6:first-child {
+    margin-bottom: 0.5rem;
+  }
+  
+  .search-filter-section {
+    padding: 1rem !important;
+    text-align: center;
+  }
+  
+  .search-filter-section .col-lg-2,
+  .search-filter-section .col-md-4 {
+    margin-bottom: 0.75rem;
+    display: flex;
+    justify-content: center;
+  }
+  
+  .search-filter-section .input-group {
+    max-width: 100%;
+  }
+  
+  .search-filter-section .form-select {
+    min-width: 100%;
+  }
+  
+  .search-filter-section .mb-3 {
+    margin-bottom: 0.75rem !important;
+  }
+  
+  .search-filter-section .row:last-child {
+    margin-top: 0.75rem;
+  }
+}
+
+/* Loading and Error States */
+.career-loading {
+  text-align: center;
+  padding: 4rem 0;
+}
+
+.career-error {
+  background: #f8d7da;
+  border: 1px solid #f5c6cb;
+  border-radius: 8px;
+  padding: 2rem;
+  margin: 2rem 0;
+}
+
+/* Animation for career items */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.career-item {
+  animation: fadeInUp 0.6s ease-out;
+}
+
+.career-item:nth-child(1) { animation-delay: 0.1s; }
+.career-item:nth-child(2) { animation-delay: 0.2s; }
+.career-item:nth-child(3) { animation-delay: 0.3s; }
+.career-item:nth-child(4) { animation-delay: 0.4s; }
+.career-item:nth-child(5) { animation-delay: 0.5s; } 

@@ -79,7 +79,7 @@ const DefaultFooter = () => {
 
                 <div className="social-medias">
                     {appData.social.map((item, key) => (
-                    <a className="linkedin" href={item.link} target="_blank" key={`fsocial-item-${key}`}><i class="fa-brands fa-linkedin"></i></a>
+                    <a className="linkedin" href={item.link} target="_blank" key={`fsocial-item-${key}`}><i className="fa-brands fa-linkedin"></i></a>
                     ))}
                 </div>
             </div>
