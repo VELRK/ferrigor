@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
 import Head from 'next/head';
 import Layouts from "@layouts/Layouts";
-import Date from '@library/date';
+import Date from '@lib/date';
 import ImageView from "@components/ImageView";
 import PageBanner from "@components/PageBanner";
 import { fetchBlogById, fetchBlogs } from '../../lib/api';

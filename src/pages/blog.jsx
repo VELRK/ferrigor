@@ -5,7 +5,7 @@ import Pagination from '@components/Pagination'
 import PageBanner from "@components/PageBanner";
 import Layouts from "@layouts/Layouts";
 
-import { fetchBlogs } from "@library/api";
+import { fetchBlogs } from "@lib/api";
 
 const Blog = ( { posts, totalPosts, currentPage } ) => {
   console.log('Blog component received props:', { posts, totalPosts, currentPage });

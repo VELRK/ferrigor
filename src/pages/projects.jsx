@@ -1,6 +1,6 @@
 import Layouts from "@layouts/Layouts";
 
-import { getSortedProjectsData } from "@library/projects";
+import { getSortedProjectsData } from "@lib/projects";
 
 import PageBanner from "@components/PageBanner";
 

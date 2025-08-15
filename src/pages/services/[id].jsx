@@ -3,7 +3,7 @@ import PageBanner from "@components/PageBanner";
 import ImageView from "@components/ImageView";
 import Accordion from 'react-bootstrap/Accordion';
 
-import { getAllServicesIds, getServiceData } from "@library/services";
+import { getAllServicesIds, getServiceData } from "@lib/services";
 
 const ServiceDetail = ( { postData } ) => {
   return (

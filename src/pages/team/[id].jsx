@@ -2,8 +2,8 @@ import Layouts from "@layouts/Layouts";
 import PageBanner from "@components/PageBanner";
 import Link from "next/link";
 
-import { getAllTeamIds, getTeamData } from "@library/team";
-import { getFeaturedProjectsData } from "@library/projects";
+import { getAllTeamIds, getTeamData } from "@lib/team";
+import { getFeaturedProjectsData } from "@lib/projects";
 
 const TeamDetail = ( { postData, projects } ) => {
   return (

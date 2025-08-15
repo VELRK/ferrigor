@@ -1,12 +1,13 @@
 {
   "compilerOptions": {
+    "baseUrl": ".",
     "paths": {
       "@/*": ["./*"],
       "@components/*": ["./src/components/*"],
       "@layouts/*": ["./src/layouts/*"],
-      "@library/*": ["./src/lib/*"],
+      "@lib/*": ["./src/lib/*"],
       "@data/*": ["./src/data/*"],
-      "@common/*": ["./src/common/*"],
+      "@common/*": ["./src/common/*"]
     }
   }
 }

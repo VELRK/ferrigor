@@ -1,5 +1,5 @@
 import Data from "@data/sliders/latest-posts.json";
-import Date from '@library/date';
+import Date from '@lib/date';
 import Link from "next/link";
 import { sliderProps } from "@common/sliderProps";
 import { Swiper, SwiperSlide } from "swiper/react";

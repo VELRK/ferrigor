@@ -1,5 +1,5 @@
 import Link from "next/link";
-import usePagination from '@library/usePagination.js'
+import usePagination from '@lib/usePagination.js'
 
 export const dotts = '...'
 

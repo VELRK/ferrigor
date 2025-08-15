@@ -4,7 +4,7 @@ import Pagination from '@components/Pagination'
 import PageBanner from "@components/PageBanner";
 import Layouts from "@layouts/Layouts";
 
-import { fetchBlogs } from "@library/api";
+import { fetchBlogs } from "@lib/api";
 
 export const PER_PAGE = 9
 

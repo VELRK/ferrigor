@@ -2,8 +2,8 @@ import React from "react";
 import Layouts from "@layouts/Layouts";
 import dynamic from "next/dynamic";
 
-import { getSortedPostsData } from "@library/posts";
-import { getSortedProjectsData } from "@library/projects";
+import { getSortedPostsData } from "@lib/posts";
+import { getSortedProjectsData } from "@lib/projects";
 
 import AboutSection from "@components/sections/About";
 import ServicesSection from "@components/sections/Services";

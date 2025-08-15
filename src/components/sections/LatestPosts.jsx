@@ -1,5 +1,5 @@
 import Data from "@data/sections/latest-posts.json";
-import Date from '@library/date';
+import Date from '@lib/date';
 import Link from "next/link";
 
 const LatestPosts = ({ posts }) => {
