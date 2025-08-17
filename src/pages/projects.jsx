@@ -55,15 +55,7 @@ const Portfolio = (props) => {
           <div className="container">
             <div className="row">
               <div className="col-12 text-center">
-                <h4>No projects available at the moment.</h4>
-                <p>This could be due to:</p>
-                <ul style={{textAlign: 'left', display: 'inline-block'}}>
-                  <li>API endpoint not accessible</li>
-                  <li>API returning empty data</li>
-                  <li>Network connectivity issues</li>
-                </ul>
-                <p><strong>Debug info:</strong> {JSON.stringify(props.projects)}</p>
-                <p><strong>API URL:</strong> https://superfinelabels.in/ferrigor/api/projects</p>
+                <h4>No projects available at the moment.</h4>         
               </div>
             </div>
           </div>
